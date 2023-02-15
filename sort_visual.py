@@ -31,13 +31,31 @@ def _insertion_sort():
         barList[pos] = cursorBar
         swap(barList[pos],cursorBar)
 
+#Selection Sort            
+def _selection_sort():
+    global barList    
+    global lengthList
 
+    for i in range(len(lengthList)):
+        min = i
+        for j in range(i + 1 ,len(lengthList)):
+            if(lengthList[j] < lengthList[min]):
+                min = j
+        lengthList[min], lengthList[i] = lengthList[i] ,lengthList[min]
+        barList[min] , barList[i] = barList[i] , barList[min]
+        swap(barList[min] , barList[i])        
+        yield
 
 #Triggering Fuctions
 
 def insertion_sort():     
     global worker
     worker = _insertion_sort()
+    animate()
+
+def selection_sort():     
+    global worker
+    worker = _selection_sort()
     animate()
 
 
@@ -91,16 +109,18 @@ def generate():
 #Making a window using the Tk widget
 window = tk.Tk()
 window.title('Sorting Visualizer')
-window.geometry('600x450')
+window.geometry('620x450')
 
 #Making a Canvas within the window to display contents
-canvas = tk.Canvas(window, width='600', height='400')
+canvas = tk.Canvas(window, width='620', height='400')
 canvas.grid(column=0,row=0, columnspan = 50)
 
 #Buttons
 insert = tk.Button(window, text='Insertion Sort', command=insertion_sort)
+select = tk.Button(window, text='Selection Sort', command=selection_sort)
 shuf = tk.Button(window, text='Shuffle', command=generate)
 insert.grid(column=1,row=1)
+select.grid(column=2,row=1)
 shuf.grid(column=0, row=1)
 
 generate()
