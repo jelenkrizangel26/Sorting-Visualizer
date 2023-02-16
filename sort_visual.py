@@ -46,6 +46,11 @@ def _selection_sort():
         swap(barList[min] , barList[i])        
         yield
 
+#Bubble Sort
+def _bubble_sort():
+    global barList
+    global lengthList
+
 #Triggering Fuctions
 
 def insertion_sort():     
