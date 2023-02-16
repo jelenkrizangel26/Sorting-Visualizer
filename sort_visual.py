@@ -1,5 +1,6 @@
 import tkinter as tk
 import random
+from PIL import Image, ImageTk
 
 #Function to swap two bars that will be animated
 def swap(pos_0, pos_1):
@@ -103,7 +104,7 @@ def generate():
     #Creating a rectangle
     for bar in range(1, 60):
         randomY = random.randint(1, 360)
-        bar = canvas.create_rectangle(barstart, randomY, barend, 365, fill='yellow')
+        bar = canvas.create_rectangle(barstart, randomY, barend, 365, fill='sky blue')
         barList.append(bar)
         barstart += 10
         barend += 10
@@ -118,19 +119,19 @@ def generate():
     #Minimum is colored Black
     for i in range(len(lengthList)-1):
         if lengthList[i] == min(lengthList):
-            canvas.itemconfig(barList[i], fill='red')
+            canvas.itemconfig(barList[i], fill='yellow')
         elif lengthList[i] == max(lengthList):
-            canvas.itemconfig(barList[i], fill='black')
+            canvas.itemconfig(barList[i], fill='violet')
 
 
 
 #Making a window using the Tk widget
 window = tk.Tk()
 window.title('Sorting Visualizer')
-window.geometry('620x450')
+window.geometry('600x450')
 
 #Making a Canvas within the window to display contents
-canvas = tk.Canvas(window, width='620', height='400')
+canvas = tk.Canvas(window, width='600', height='400')
 canvas.grid(column=0,row=0, columnspan = 50)
 
 #Buttons
@@ -138,10 +139,18 @@ insert = tk.Button(window, text='Insertion Sort', command=insertion_sort)
 select = tk.Button(window, text='Selection Sort', command=selection_sort)
 bubble = tk.Button(window, text='Bubble Sort', command=bubble_sort)
 shuf = tk.Button(window, text='Shuffle', command=generate)
-insert.grid(column=1,row=1)
-select.grid(column=2,row=1)
-bubble.grid(column=3,row=1)
+bubble.grid(column=1,row=1)
+insert.grid(column=2,row=1)
+select.grid(column=3,row=1)
 shuf.grid(column=0, row=1)
+
+root = tk.Tk()
+
+ico = Image.open(' ~/Desktop/PYTHON/Sorting-Visualizer/icon.png')
+photo = ImageTk.PhotoImage(ico)
+root.wm_iconphoto(False, photo)
+
+root.mainloop()
 
 generate()
 window.mainloop()
