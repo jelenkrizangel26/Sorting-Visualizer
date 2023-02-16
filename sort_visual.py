@@ -51,6 +51,14 @@ def _bubble_sort():
     global barList
     global lengthList
 
+    for i in range(len(lengthList) - 1):
+        for j in range(len(lengthList) - i - 1):
+            if(lengthList[j] > lengthList[j + 1]):
+                lengthList[j] , lengthlist[j + 1] = lengthList[j + 1] , lengthList[j]
+                barList[j], barList[j + 1] = barList[j + 1] , barList[j]
+                swap(barList[j + 1] , barList[j])
+                yield 
+
 #Triggering Fuctions
 
 def insertion_sort():     
@@ -62,6 +70,11 @@ def selection_sort():
     global worker
     worker = _selection_sort()
     animate()
+
+def bubble_sort():     
+    global worker
+    worker = _bubble_sort()
+    animate()  
 
 
 #Animation Function
@@ -123,9 +136,11 @@ canvas.grid(column=0,row=0, columnspan = 50)
 #Buttons
 insert = tk.Button(window, text='Insertion Sort', command=insertion_sort)
 select = tk.Button(window, text='Selection Sort', command=selection_sort)
+bubble = tk.Button(window, text='Bubble Sort', command=bubble_sort)
 shuf = tk.Button(window, text='Shuffle', command=generate)
 insert.grid(column=1,row=1)
 select.grid(column=2,row=1)
+bubble.grid(column=3,row=1)
 shuf.grid(column=0, row=1)
 
 generate()
