@@ -54,7 +54,7 @@ def _bubble_sort():
     for i in range(len(lengthList) - 1):
         for j in range(len(lengthList) - i - 1):
             if(lengthList[j] > lengthList[j + 1]):
-                lengthList[j] , lengthlist[j + 1] = lengthList[j + 1] , lengthList[j]
+                lengthList[j] , lengthList[j + 1] = lengthList[j + 1] , lengthList[j]
                 barList[j], barList[j + 1] = barList[j + 1] , barList[j]
                 swap(barList[j + 1] , barList[j])
                 yield 
