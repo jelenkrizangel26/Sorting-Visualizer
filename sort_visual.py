@@ -1,6 +1,7 @@
 import tkinter as tk
 import random
-from PIL import Image, ImageTk
+from tkinter import *
+from PIL import ImageTk, Image
 
 #Function to swap two bars that will be animated
 def swap(pos_0, pos_1):
@@ -144,13 +145,10 @@ insert.grid(column=2,row=1)
 select.grid(column=3,row=1)
 shuf.grid(column=0, row=1)
 
-root = tk.Tk()
+# master = Tk()
 
-ico = Image.open(' ~/Desktop/PYTHON/Sorting-Visualizer/icon.png')
-photo = ImageTk.PhotoImage(ico)
-root.wm_iconphoto(False, photo)
-
-root.mainloop()
+# photo = PhotoImage(file = "c:/Users/abby/Desktop/PYTHON/Sorting-Visualizer/icon.gif")
+# master.iconphoto(True, photo)
 
 generate()
 window.mainloop()
