@@ -147,8 +147,18 @@ insert.grid(column=2,row=1)
 select.grid(column=3,row=1)
 shuf.grid(column=0, row=1)
 
+#Display Icon
 photo = PhotoImage(file = "c:/Users/abby/Desktop/PYTHON/Sorting-Visualizer/icon.png")
 window.iconphoto(True, photo)
+
+def play_sound():
+   pygame.mixer.music.load("bg.mp3")
+   pygame.mixer.music.play()
+
+# Add a Button widget
+b1 = Button(window, text="Play Music", command=play_sound)
+b1.pack(pady=200)
+
 
 
 generate()
