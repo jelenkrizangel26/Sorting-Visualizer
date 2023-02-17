@@ -1,7 +1,9 @@
 import tkinter as tk
 import random
+import pygame
 from tkinter import *
 from PIL import ImageTk, Image
+
 
 #Function to swap two bars that will be animated
 def swap(pos_0, pos_1):
@@ -105,7 +107,7 @@ def generate():
     #Creating a rectangle
     for bar in range(1, 60):
         randomY = random.randint(1, 360)
-        bar = canvas.create_rectangle(barstart, randomY, barend, 365, fill='sky blue')
+        bar = canvas.create_rectangle(barstart, randomY, barend, 375, fill='sky blue')
         barList.append(bar)
         barstart += 10
         barend += 10
@@ -145,10 +147,9 @@ insert.grid(column=2,row=1)
 select.grid(column=3,row=1)
 shuf.grid(column=0, row=1)
 
-# master = Tk()
+photo = PhotoImage(file = "c:/Users/abby/Desktop/PYTHON/Sorting-Visualizer/icon.png")
+window.iconphoto(True, photo)
 
-# photo = PhotoImage(file = "c:/Users/abby/Desktop/PYTHON/Sorting-Visualizer/icon.gif")
-# master.iconphoto(True, photo)
 
 generate()
 window.mainloop()
