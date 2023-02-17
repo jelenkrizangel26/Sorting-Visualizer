@@ -3,6 +3,8 @@ import random
 import pygame
 from tkinter import *
 from PIL import ImageTk, Image
+from playsound import playsound
+from pygame import mixer
 
 
 #Function to swap two bars that will be animated
@@ -151,14 +153,17 @@ shuf.grid(column=0, row=1)
 photo = PhotoImage(file = "c:/Users/abby/Desktop/PYTHON/Sorting-Visualizer/icon.png")
 window.iconphoto(True, photo)
 
-def play_sound():
-   pygame.mixer.music.load("bg.mp3")
-   pygame.mixer.music.play()
+# def play_sound():
+#    pygame.mixer.music.load("c:/Users/abby/Desktop/PYTHON/Sorting-Visualizer/bg.mp3")
+#    pygame.mixer.music.play()
 
-# Add a Button widget
-b1 = Button(window, text="Play Music", command=play_sound)
-b1.pack(pady=200)
+# # # Add a Button widget
+# # b1 = Button(window, text="Play Music", command=play_sound)
+# # b1.pack(pady=600)
 
+mixer.init()
+mixer.music.load("c:/Users/abby/Desktop/PYTHON/Sorting-Visualizer/bg.mp3")
+mixer.music.play()
 
 
 generate()
