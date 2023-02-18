@@ -1,8 +1,6 @@
 import tkinter as tk
 import random
 from tkinter import *
-from PIL import ImageTk, Image
-from playsound import playsound
 from pygame import mixer
 
 
