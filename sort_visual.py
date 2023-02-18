@@ -131,9 +131,6 @@ def generate():
     mixer.init()
     mixer.music.load("c:/Users/abby/Desktop/PYTHON/Sorting-Visualizer/bg.mp3")
     mixer.music.play()
-    mixer.music.pause()
-
-
 
 #Making a window using the Tk widget
 window = tk.Tk()
