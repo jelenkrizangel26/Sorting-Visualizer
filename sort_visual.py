@@ -1,6 +1,5 @@
 import tkinter as tk
 import random
-import pygame
 from tkinter import *
 from PIL import ImageTk, Image
 from playsound import playsound
@@ -120,13 +119,19 @@ def generate():
         length = bar[3] - bar[1]
         lengthList.append(length)
 
-    #Maximum is colored Red
-    #Minimum is colored Black
+    #Maximum is colored Violet
+    #Minimum is colored yellow
     for i in range(len(lengthList)-1):
         if lengthList[i] == min(lengthList):
             canvas.itemconfig(barList[i], fill='yellow')
         elif lengthList[i] == max(lengthList):
             canvas.itemconfig(barList[i], fill='violet')
+
+    #BG Music
+    mixer.init()
+    mixer.music.load("c:/Users/abby/Desktop/PYTHON/Sorting-Visualizer/bg.mp3")
+    mixer.music.play()
+    mixer.music.pause()
 
 
 
@@ -153,17 +158,6 @@ shuf.grid(column=0, row=1)
 photo = PhotoImage(file = "c:/Users/abby/Desktop/PYTHON/Sorting-Visualizer/icon.png")
 window.iconphoto(True, photo)
 
-# def play_sound():
-#    pygame.mixer.music.load("c:/Users/abby/Desktop/PYTHON/Sorting-Visualizer/bg.mp3")
-#    pygame.mixer.music.play()
-
-# # # Add a Button widget
-# # b1 = Button(window, text="Play Music", command=play_sound)
-# # b1.pack(pady=600)
-
-mixer.init()
-mixer.music.load("c:/Users/abby/Desktop/PYTHON/Sorting-Visualizer/bg.mp3")
-mixer.music.play()
 
 
 generate()
